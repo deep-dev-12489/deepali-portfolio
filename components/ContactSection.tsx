@@ -95,7 +95,7 @@ export default function ContactSection() {
 
                 {/* Phone */}
                 <a
-                  href="tel:+919170517934"
+                  href="tel:+917887236431"
                   className="flex items-start gap-4 p-3.5 rounded-xl bg-navy-900 border border-slate-800 hover:border-brand-accent/60 group transition-all"
                 >
                   <div className="p-2.5 rounded-lg bg-navy-850 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors">
@@ -106,7 +106,7 @@ export default function ContactSection() {
                       Phone / WhatsApp
                     </span>
                     <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
-                      +91 9170517934
+                      +91 7887236431
                     </span>
                   </div>
                 </a>
