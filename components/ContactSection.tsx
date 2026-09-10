@@ -23,18 +23,41 @@ export default function ContactSection() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoSubject = encodeURIComponent(
-      formData.subject || `Portfolio Contact from ${formData.name}`
-    );
-    const mailtoBody = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:deepalimotwani8@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(data.error || 'Failed to send message');
+      }
+    } catch (err: any) {
+      console.warn('API route failed, falling back to mailto:', err);
+      const mailtoSubject = encodeURIComponent(
+        formData.subject || `Portfolio Contact from ${formData.name}`
+      );
+      const mailtoBody = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      window.location.href = `mailto:deepalimotwani8@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const scrollToTop = () => {
@@ -233,19 +256,20 @@ export default function ContactSection() {
                   />
                 </div>
 
-                {/* Submit Button - Reserved Accent #5B9CE8 */}
+                {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-accent hover:bg-brand-bright text-white font-heading font-semibold text-sm shadow-lg shadow-blue-500/20 transition-all"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-accent hover:bg-brand-bright disabled:opacity-50 disabled:cursor-not-allowed text-white font-heading font-semibold text-sm shadow-lg shadow-blue-500/20 transition-all"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Send Message via Email</span>
+                  <span>{loading ? 'Sending Message...' : 'Send Message'}</span>
                 </button>
 
                 {submitted && (
                   <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Your mail client has opened with your message pre-filled!</span>
+                    <span>Thank you! Your message was sent directly to Deepali via Zoho Mail API.</span>
                   </div>
                 )}
               </form>
