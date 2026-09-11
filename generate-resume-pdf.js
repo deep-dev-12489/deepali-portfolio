@@ -17,7 +17,7 @@ const lightText = '#64748B';
 // Header
 doc.fillColor(primaryColor).fontSize(22).font('Helvetica-Bold').text('Deepali Motwani');
 doc.fillColor(accentColor).fontSize(12).font('Helvetica-Bold').text('AI & Cloud Infrastructure Engineer | DevOps & Web Developer');
-doc.fontSize(9).font('Helvetica').fillColor(lightText).text('deepalimotwani8@gmail.com | +91 7887236431 | Kanpur, India | linkedin.com/in/deepali-motwani-53bb9025b | github.com/deep-dev-12489');
+doc.fontSize(9).font('Helvetica').fillColor(lightText).text('contact@deepalimotwani.com | +91 7887236431 | Kanpur, India | linkedin.com/in/deepali-motwani-53bb9025b | github.com/deep-dev-12489');
 
 doc.moveDown(0.8);
 doc.strokeColor('#E2E8F0').lineWidth(1).moveTo(36, doc.y).lineTo(559, doc.y).stroke();

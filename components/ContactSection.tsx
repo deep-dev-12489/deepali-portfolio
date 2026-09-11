@@ -100,7 +100,7 @@ export default function ContactSection() {
                 
                 {/* Email */}
                 <a
-                  href="mailto:deepalimotwani8@gmail.com"
+                  href="mailto:contact@deepalimotwani.com"
                   className="flex items-start gap-4 p-3.5 rounded-xl bg-navy-900 border border-slate-800 hover:border-brand-accent/60 group transition-all"
                 >
                   <div className="p-2.5 rounded-lg bg-navy-850 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors">
@@ -111,7 +111,7 @@ export default function ContactSection() {
                       Email Address
                     </span>
                     <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
-                      deepalimotwani8@gmail.com
+                      contact@deepalimotwani.com
                     </span>
                   </div>
                 </a>
