@@ -12,8 +12,8 @@ export async function POST(req: Request) {
     const clientSecret = process.env.ZOHO_CLIENT_SECRET;
     const refreshToken = process.env.ZOHO_REFRESH_TOKEN;
     const accountId = process.env.ZOHO_ACCOUNT_ID || '6794683000000002002';
-    const fromEmail = process.env.ZOHO_FROM_EMAIL || 'deepalimotwani.com@zohomail.in';
-    const toEmail = process.env.ZOHO_TO_EMAIL || 'deepalimotwani8@gmail.com';
+    const fromEmail = process.env.ZOHO_FROM_EMAIL || 'contact@deepalimotwani.com';
+    const toEmail = process.env.ZOHO_TO_EMAIL || 'contact@deepalimotwani.com';
 
     // 1. Refresh Access Token
     const tokenParams = new URLSearchParams({
