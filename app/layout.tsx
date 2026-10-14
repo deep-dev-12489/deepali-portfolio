@@ -17,8 +17,8 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://deepalimotwani.com'),
-  title: 'Deepali Motwani — AI & Cloud Infrastructure Engineer | DevOps & Web Developer',
-  description: 'Personal portfolio of Deepali Motwani. AI & Cloud Infrastructure Engineer, DevOps Specialist, RAG Pipeline Developer, and Business Professional.',
+  title: 'Deepali Motwani — Software Engineer (Cloud & AI) | Web Developer',
+  description: 'Personal portfolio of Deepali Motwani. Software Engineer (Cloud & AI) | Web Developer, DevOps Specialist, RAG Pipeline Developer, and Business Professional.',
   keywords: [
     'Deepali Motwani',
     'AI Engineer',
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     apple: '/logo.svg',
   },
   openGraph: {
-    title: 'Deepali Motwani — AI & Cloud Infrastructure Engineer',
-    description: 'AI & Cloud Infrastructure Engineer bridging high-availability telemetry stacks with agentic AI pipelines.',
+    title: 'Deepali Motwani — Software Engineer (Cloud & AI) | Web Developer',
+    description: 'Software Engineer (Cloud & AI) | Web Developer bridging high-availability telemetry stacks with agentic AI pipelines.',
     url: 'https://deepalimotwani.com',
     siteName: 'Deepali Motwani Portfolio',
     images: [

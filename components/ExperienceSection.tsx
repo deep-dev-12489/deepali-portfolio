@@ -19,7 +19,7 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 'rankaltus',
-    role: 'AI & Cloud Infrastructure Engineer',
+    role: 'Software Engineer (Cloud & AI) | Web Developer',
     company: 'Rankaltus.com',
     period: 'Nov 2025 – Present',
     duration: 'Current Role',

@@ -72,7 +72,7 @@ export default function Navbar() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
               </span>
               <span className="text-[11px] text-[#475569] font-medium hidden sm:inline-block">
-                AI &amp; Cloud Infra Engineer
+                Software Engineer (Cloud &amp; AI) | Web Developer
               </span>
             </div>
           </a>

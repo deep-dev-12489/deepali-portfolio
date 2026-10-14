@@ -34,7 +34,7 @@ export default function AboutSection() {
               </h3>
               
               <p className="text-[#334155] leading-relaxed text-[15px] sm:text-base">
-                Results-driven <strong className="text-[#0284C7] font-semibold">AI &amp; Cloud Infrastructure Engineer</strong> and <strong className="text-[#0284C7] font-semibold">CRM Professional</strong> currently pursuing an MBA. Combines hands-on experience in Kubernetes cluster management, VictoriaMetrics HA observability, and S3 disaster recovery with AI engineering (Generative AI, RAG pipelines, agentic frameworks).
+                Results-driven <strong className="text-[#0284C7] font-semibold">Software Engineer (Cloud &amp; AI) | Web Developer</strong> and <strong className="text-[#0284C7] font-semibold">CRM Professional</strong> currently pursuing an MBA. Combines hands-on experience in Kubernetes cluster management, VictoriaMetrics HA observability, and S3 disaster recovery with AI engineering (Generative AI, RAG pipelines, agentic frameworks).
               </p>
               
               <p className="text-[#475569] leading-relaxed text-[14px] sm:text-[15px]">

@@ -16,7 +16,7 @@ const lightText = '#64748B';
 
 // Header
 doc.fillColor(primaryColor).fontSize(22).font('Helvetica-Bold').text('Deepali Motwani');
-doc.fillColor(accentColor).fontSize(12).font('Helvetica-Bold').text('AI & Cloud Infrastructure Engineer | DevOps & Web Developer');
+doc.fillColor(accentColor).fontSize(12).font('Helvetica-Bold').text('Software Engineer (Cloud & AI) | Web Developer');
 doc.fontSize(9).font('Helvetica').fillColor(lightText).text('contact@deepalimotwani.com | +91 7887236431 | Kanpur, India | linkedin.com/in/deepali-motwani-53bb9025b | github.com/deep-dev-12489');
 
 doc.moveDown(0.8);
@@ -27,7 +27,7 @@ doc.moveDown(0.8);
 doc.fillColor(primaryColor).fontSize(12).font('Helvetica-Bold').text('PROFILE SUMMARY');
 doc.moveDown(0.3);
 doc.fillColor(darkText).fontSize(9.5).font('Helvetica').text(
-  'Results-driven AI & Cloud Infrastructure Engineer and CRM Professional currently pursuing an MBA. Combines hands-on experience in Kubernetes cluster management, VictoriaMetrics HA observability, and S3 disaster recovery with AI engineering (Generative AI, RAG pipelines, agentic frameworks). Proven expertise in cost-benchmarking telemetry migrations, client relationship management, and digital media production.',
+  'Results-driven Software Engineer (Cloud & AI) | Web Developer and CRM Professional currently pursuing an MBA. Combines hands-on experience in Kubernetes cluster management, VictoriaMetrics HA observability, and S3 disaster recovery with AI engineering (Generative AI, RAG pipelines, agentic frameworks). Proven expertise in cost-benchmarking telemetry migrations, client relationship management, and digital media production.',
   { align: 'justify', lineGap: 3 }
 );
 
@@ -38,7 +38,7 @@ doc.fillColor(primaryColor).fontSize(12).font('Helvetica-Bold').text('PROFESSION
 doc.moveDown(0.4);
 
 // Rankaltus
-doc.fillColor(darkText).fontSize(10.5).font('Helvetica-Bold').text('AI & Cloud Infrastructure Engineer — Rankaltus.com');
+doc.fillColor(darkText).fontSize(10.5).font('Helvetica-Bold').text('Software Engineer (Cloud & AI) | Web Developer — Rankaltus.com');
 doc.fillColor(accentColor).fontSize(9).font('Helvetica').text('Nov 2025 – Present | Current Role');
 doc.fillColor(darkText).fontSize(9).font('Helvetica');
 doc.text('• Contributed to AI-driven cloud infrastructure initiatives, applying Kubernetes and observability practices to support scalable, reliable systems.');

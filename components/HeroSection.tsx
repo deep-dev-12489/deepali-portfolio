@@ -75,7 +75,7 @@ export default function HeroSection() {
               </div>
 
               <h2 className="font-heading text-lg sm:text-2xl font-bold flex flex-wrap items-center gap-2">
-                <span className="text-[#0284C7]">AI &amp; Cloud Infrastructure Engineer</span>
+                <span className="text-[#0284C7]">Software Engineer (Cloud &amp; AI) | Web Developer</span>
                 <span className="text-[#475569] font-semibold text-base sm:text-xl">
                   Kubernetes &middot; Observability &middot; Generative AI
                 </span>
@@ -233,7 +233,7 @@ export default function HeroSection() {
                 <div className="w-56 h-56 sm:w-64 sm:h-64 aspect-square rounded-2xl overflow-hidden bg-[#F0F7FF] relative shadow-inner border border-[#E0F2FE]">
                   <img
                     src="/profile-photo.jpg"
-                    alt="Deepali Motwani - AI & Cloud Infrastructure Engineer"
+                    alt="Deepali Motwani - Software Engineer (Cloud & AI) | Web Developer"
                     className="w-full h-full object-cover object-[center_18%] transition-transform duration-500 group-hover:scale-105"
                     width={256}
                     height={256}
@@ -246,7 +246,7 @@ export default function HeroSection() {
                   style={{ fontFamily: 'var(--font-sans), Inter, sans-serif' }}
                 >
                   <Sparkles className="w-3.5 h-3.5 text-[#0284C7]" />
-                  <span>Kanpur, India &bull; AI &amp; Cloud Infra Engineer</span>
+                  <span>Kanpur, India &bull; Software Engineer (Cloud &amp; AI) | Web Developer</span>
                 </div>
               </div>
             </div>

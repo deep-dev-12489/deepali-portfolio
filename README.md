@@ -1,6 +1,6 @@
 # Deepali Motwani — Personal Portfolio Website
 
-Modern, high-performance personal portfolio website for **Deepali Motwani** — AI & Cloud Infrastructure Engineer, DevOps & Web Developer, and Business Professional.
+Modern, high-performance personal portfolio website for **Deepali Motwani** — Software Engineer (Cloud & AI) | Web Developer, and Business Professional.
 
 Built with **Next.js 14 (App Router)**, **TypeScript**, and **Tailwind CSS**, designed specifically to highlight cloud observability, agentic AI systems, and business management credentials.
 
