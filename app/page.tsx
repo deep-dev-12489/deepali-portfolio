@@ -9,11 +9,11 @@ import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-navy-950 text-slate-200 selection:bg-brand-bright selection:text-white">
-      {/* Sticky Glassmorphism Header */}
+    <main className="min-h-screen bg-white text-[#0F172A] selection:bg-[#DBEAFE] selection:text-[#0369A1]">
+      {/* Sticky Header */}
       <Navbar />
 
-      {/* Sections in Intentional High-Signal Sequence */}
+      {/* Sections in Intentional Sequence with Alternating White / Light Ice Blue */}
       <HeroSection />
       <AboutSection />
       <ProjectsSection />

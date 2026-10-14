@@ -3,161 +3,204 @@
 import React from 'react';
 import {
   Server,
+  Cloud,
   Cpu,
   Code2,
-  Video,
   TrendingUp,
-  Wrench,
+  Sparkles,
+  Layers,
 } from 'lucide-react';
+import { HelmWheelSticker } from './stickers';
+
+interface SkillItem {
+  name: string;
+}
 
 interface SkillGroup {
   id: string;
   category: string;
+  badge?: string;
   icon: React.ReactNode;
-  skills: string[];
   description: string;
+  skills: SkillItem[];
 }
 
 const skillGroups: SkillGroup[] = [
   {
     id: 'cloud-infra',
     category: 'Cloud Infrastructure & Observability',
-    icon: <Server className="w-5 h-5 text-blue-600" />,
-    description: 'High-availability telemetry, cluster management & S3 resilience',
+    icon: <Server className="w-5 h-5 text-sky-600" />,
+    description: 'High-availability telemetry, cluster management & resilient S3 architectures',
     skills: [
-      'Kubernetes (K8s)',
-      'VictoriaMetrics (vmsingle/vmcluster)',
-      'Helm & kubectl',
-      'Prometheus & MetricsQL',
-      'Grafana Dashboards',
-      'vmalert & AlertManager',
-      'vmauth & Multi-Tenancy',
-      'MinIO & S3 Backups',
-      'Disaster Recovery (DR)',
-      'Telemetry Migration (vmctl)',
+      { name: 'Kubernetes (K8s)' },
+      { name: 'Helm & kubectl' },
+      { name: 'Prometheus & MetricsQL' },
+      { name: 'Grafana Dashboards' },
+      { name: 'VictoriaMetrics (single & cluster)' },
+      { name: 'vmalert & AlertManager' },
+      { name: 'Disaster Recovery & S3 Backups (MinIO)' },
+      { name: 'Multi-Tenancy & RBAC (vmauth)' },
+      { name: 'Telemetry Migration (vmctl)' },
+      { name: 'Cost Benchmarking' },
     ],
   },
   {
-    id: 'ai-software',
-    category: 'AI & Software Engineering',
+    id: 'microsoft-azure',
+    category: 'Microsoft Azure',
+    badge: 'Learning ✨',
+    icon: <Cloud className="w-5 h-5 text-[#0078D4]" />,
+    description: 'Foundational Azure cloud capabilities targeting Azure Support & SRE workflows',
+    skills: [
+      { name: 'Azure Fundamentals (AZ-900)' },
+      { name: 'AKS' },
+      { name: 'Azure Monitor' },
+      { name: 'Azure Blob Storage' },
+    ],
+  },
+  {
+    id: 'ai-automation',
+    category: 'AI & Automation',
     icon: <Cpu className="w-5 h-5 text-blue-600" />,
-    description: 'Agentic workflows, RAG pipelines & LLM orchestration',
+    description: 'Agentic workflows, RAG pipelines & source-grounded LLM orchestration',
     skills: [
-      'Generative AI',
-      'RAG Architectures',
-      'LangChain',
-      'LangGraph',
-      'Agentic Workflows',
-      'Gemini API',
-      'Prompt Engineering',
-      'Vector Databases',
+      { name: 'Generative AI' },
+      { name: 'RAG Architectures' },
+      { name: 'LangChain' },
+      { name: 'LangGraph' },
+      { name: 'Agentic Workflows' },
+      { name: 'Prompt Engineering' },
+      { name: 'Vector Databases (ChromaDB)' },
+      { name: 'Gemini API' },
     ],
   },
   {
-    id: 'programming-db',
-    category: 'Programming & Databases',
+    id: 'programming-tools',
+    category: 'Programming & Tools',
     icon: <Code2 className="w-5 h-5 text-sky-600" />,
-    description: 'Core languages, vector stores, and relational data',
+    description: 'Core languages, developer tooling, and modern full-stack web frameworks',
     skills: [
-      'Python',
-      'TypeScript',
-      'JavaScript',
-      'ChromaDB',
-      'SQL',
-      'Git & GitHub',
+      { name: 'Python' },
+      { name: 'SQL' },
+      { name: 'JavaScript' },
+      { name: 'TypeScript' },
+      { name: 'Git & GitHub' },
+      { name: 'Streamlit' },
+      { name: 'React' },
     ],
   },
   {
-    id: 'web-design-video',
-    category: 'Web, Design & Video Editing',
-    icon: <Video className="w-5 h-5 text-sky-600" />,
-    description: 'Video-as-code pipelines, modern web & media design',
+    id: 'customer-business',
+    category: 'Customer & Business Skills',
+    icon: <TrendingUp className="w-5 h-5 text-sky-600" />,
+    description: 'Client success, cross-functional stakeholder alignment & strategic operations',
     skills: [
-      'Adobe Premiere Pro',
-      'Remotion (Video as Code)',
-      'React',
-      'Streamlit',
-      'Canva',
-      'SEO Optimization',
+      { name: 'Client Relations' },
+      { name: 'CRM Systems' },
+      { name: 'Partnership Management' },
+      { name: 'Business Development' },
+      { name: 'Communication Strategy' },
     ],
   },
   {
-    id: 'business-ops',
-    category: 'Business & Client Operations',
-    icon: <TrendingUp className="w-5 h-5 text-cyan-600" />,
-    description: 'Strategic growth, partnerships & stakeholder alignment',
+    id: 'additional',
+    category: 'Additional',
+    icon: <Layers className="w-5 h-5 text-blue-500" />,
+    description: 'Video-as-code engineering, creative asset production & organic search discovery',
     skills: [
-      'Business Development',
-      'Partnership Management',
-      'Client Relations',
-      'Communication Strategy',
+      { name: 'Remotion (Video as Code)' },
+      { name: 'Adobe Premiere Pro' },
+      { name: 'WordPress & Elementor Pro' },
+      { name: 'SEO' },
     ],
-  },
-  {
-    id: 'supporting-exp',
-    category: 'Supporting Experience',
-    icon: <Wrench className="w-5 h-5 text-cyan-600" />,
-    description: 'CRM platforms and content management tools',
-    skills: ['CRM Systems', 'WordPress & CMS', 'Elementor Pro'],
   },
 ];
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-20 bg-slate-100/90 text-slate-900 relative border-y border-slate-200">
+    <section id="skills" className="py-20 bg-[#F4F9FF] text-[#0F172A] relative border-y border-[#D0E3F7] scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Section Header */}
         <div className="flex flex-col items-start gap-2 mb-10">
-          <span className="text-xs font-mono font-semibold tracking-wider text-brand-accent uppercase">
-            03 / Core Competencies
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Technical Skills &amp; Stack
-          </h2>
-          <p className="text-slate-600 text-sm max-w-xl">
-            Clean breakdown of technical tools, observability frameworks, AI libraries, and business operations platforms.
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-xs font-semibold tracking-wider uppercase border border-[#D0E3F7]">
+            <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
+            <span>03 / Core Competencies</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+              Technical Skills &amp; Stack
+            </h2>
+            <HelmWheelSticker size={38} rotate={6} />
+          </div>
+          <p className="text-[#0284C7] font-semibold text-base mt-1">
+            Cloud &amp; observability engineer with an AI and customer-success edge.
+          </p>
+          <p className="text-[#475569] text-[14px] max-w-2xl mt-0.5 leading-relaxed">
+            Targeted across high-availability cloud telemetry, Microsoft Azure workflows, agentic AI systems, and stakeholder-facing client solutions.
           </p>
         </div>
 
-        {/* Skill Category Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillGroups.map((group) => (
-            <div
-              key={group.id}
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-blue-400 hover:shadow-md transition-all duration-300"
-            >
-              <div className="space-y-4">
-                {/* Header */}
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-100 shrink-0">
-                    {group.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-heading text-base font-bold text-slate-900 leading-tight">
-                      {group.category}
-                    </h3>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
-                      {group.description}
-                    </p>
-                  </div>
-                </div>
+        {/* 6-Card Grid: 3x2 on Large, 2x3 on Medium, items-start to prevent unnatural stretching */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          {skillGroups.map((group) => {
+            const isAzure = group.id === 'microsoft-azure';
 
-                {/* Skill Badges */}
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-150">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-slate-50 text-slate-800 border border-slate-200 hover:border-blue-300 hover:text-slate-900 transition-colors"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                      {skill}
-                    </span>
-                  ))}
+            return (
+              <div
+                key={group.id}
+                className={`p-6 rounded-3xl bg-white border transition-all duration-300 flex flex-col justify-between shadow-[0_8px_24px_rgba(2,132,199,0.08)] hover:shadow-[0_12px_28px_rgba(2,132,199,0.16)] hover:-translate-y-1 ${
+                  isAzure
+                    ? 'border-[#0078D4] ring-1 ring-[#0078D4]/30 bg-gradient-to-b from-white to-[#F0F7FF]'
+                    : 'border-[#D0E3F7] hover:border-[#38BDF8]'
+                }`}
+              >
+                <div className="space-y-4">
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 rounded-2xl bg-[#E0F2FE] border border-[#D0E3F7] shrink-0 text-[#0284C7]">
+                        {group.icon}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <h3 className="font-heading text-base font-bold text-[#0F172A] leading-tight">
+                            {group.category}
+                          </h3>
+                          {/* Learning Badge shown ONLY once in the card header */}
+                          {group.badge && (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#E0F2FE] text-[#0078D4] border border-[#0078D4]/30 shadow-sm">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#0078D4] animate-pulse" />
+                              {group.badge}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[14px] text-[#475569] mt-1 leading-snug">
+                          {group.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Skill Badges */}
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E0F2FE]">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill.name}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border ${
+                          isAzure
+                            ? 'bg-[#E0F2FE]/70 text-[#0F172A] border-[#38BDF8]/40 hover:bg-[#E0F2FE]'
+                            : 'bg-white text-[#0F172A] border-[#D0E3F7] hover:border-[#38BDF8] hover:bg-[#F0F7FF]'
+                        } hover:scale-105 hover:-translate-y-0.5`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]" />
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

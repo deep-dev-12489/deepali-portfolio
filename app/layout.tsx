@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Nunito } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -8,10 +8,11 @@ const inter = Inter({
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const nunito = Nunito({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
+  weight: ['400', '600', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     'DevOps Engineer',
     'Kubernetes',
     'VictoriaMetrics',
+    'Microsoft Azure',
     'Generative AI',
     'RAG Architectures',
     'LangChain',
@@ -60,11 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${nunito.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/logo.svg" type="image/svg+xml" sizes="any" />
       </head>
-      <body className="bg-navy-950 text-slate-200 min-h-screen flex flex-col font-sans selection:bg-brand-accent selection:text-white">
+      <body className="bg-white text-[#0F172A] min-h-screen flex flex-col font-sans selection:bg-[#DBEAFE] selection:text-[#0369A1] antialiased">
         {children}
       </body>
     </html>

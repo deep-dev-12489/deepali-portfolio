@@ -10,36 +10,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#070C1B', // Dark section background
-          900: '#0B132B', // Main dark container
-          850: '#0F1E42', // Dark card surface
-          800: '#1A2A50', // Dark border
-          700: '#263D70',
+        cloud: {
+          surface: '#F4F9FF',
+          card: '#EBF4FE',
+          border: '#D0E3F7',
+          sky: '#38BDF8',
+          primary: '#0284C7',
+          azure: '#0078D4',
+          deep: '#1D4ED8',
         },
-        lightsection: {
-          50: '#F8FAFC',  // Subtle light blue-gray background
-          100: '#F1F5F9', // Light section card surface
-          200: '#E2E8F0', // Border in light section
-          900: '#0F172A', // Dark text on light background
-        },
-        brand: {
-          accent: '#3B82F6', // Primary vibrant blue (blue-500)
-          cyan: '#22D3EE',   // Bright cyan hover/highlight accent (cyan-400)
-          bright: '#2563EB', // Deep action blue
-          glow: '#60A5FA',   // Soft glow accent
+        slateText: {
+          main: '#0F172A',
+          muted: '#475569',
+          subtle: '#64748B',
         },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'Inter', 'sans-serif'],
-        heading: ['var(--font-heading)', 'Space Grotesk', 'sans-serif'],
+        heading: ['var(--font-heading)', 'Nunito', 'sans-serif'],
       },
       boxShadow: {
-        'glow-accent': '0 0 25px -5px rgba(59, 130, 246, 0.35)',
-        'glow-cyan': '0 0 25px -5px rgba(34, 211, 238, 0.4)',
-        'glow-subtle': '0 4px 20px -2px rgba(7, 12, 27, 0.4)',
-        'light-card': '0 4px 12px rgba(15, 23, 42, 0.04)',
-        'light-card-hover': '0 12px 28px rgba(15, 23, 42, 0.08)',
+        'blue-soft': '0 8px 24px rgba(2, 132, 199, 0.12)',
+        'blue-hover': '0 12px 32px rgba(2, 132, 199, 0.22)',
+        'blue-glow': '0 0 25px rgba(56, 189, 248, 0.35)',
+        'blue-card': '0 4px 16px rgba(2, 132, 199, 0.08)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
       },
     },
   },

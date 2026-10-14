@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, Sparkles } from 'lucide-react';
+import { LaptopSticker } from './stickers';
 
 interface Experience {
   id: string;
@@ -73,78 +74,81 @@ const experiences: Experience[] = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 bg-navy-950 text-slate-200 relative">
+    <section id="experience" className="py-24 bg-white text-[#0F172A] relative scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col items-start gap-2 mb-16">
-          <span className="text-xs font-mono font-semibold tracking-wider text-brand-accent uppercase">
-            04 / Career Journey
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Professional Experience
-          </h2>
-          <p className="text-slate-400 text-sm max-w-xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-xs font-semibold tracking-wider uppercase border border-[#D0E3F7]">
+            <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
+            <span>04 / Career Journey</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+              Professional Experience
+            </h2>
+            <LaptopSticker size={36} rotate={-8} />
+          </div>
+          <p className="text-[#475569] text-[15px] max-w-xl">
             Track record across cloud infrastructure engineering, partnership growth, CRM management, and web development.
           </p>
         </div>
 
         {/* Timeline Layout */}
-        <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-8 space-y-12">
+        <div className="relative border-l-2 border-[#D0E3F7] ml-4 sm:ml-8 space-y-12">
           {experiences.map((exp) => (
             <div key={exp.id} className="relative pl-6 sm:pl-10 group">
               
               {/* Timeline Bullet Node */}
-              <div className={`absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-navy-950 border-2 ${
-                exp.isCurrent ? 'border-emerald-400 bg-emerald-400' : 'border-brand-accent'
-              } group-hover:scale-125 transition-all duration-200`} />
+              <div className={`absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+                exp.isCurrent
+                  ? 'border-[#0284C7] bg-[#38BDF8] ring-4 ring-[#E0F2FE]'
+                  : 'border-[#0284C7] bg-white group-hover:bg-[#0284C7]'
+              } group-hover:scale-125`} />
 
               {/* Experience Card */}
-              <div className={`dark-card dark-card-hover p-6 sm:p-8 rounded-2xl border ${
-                exp.isCurrent ? 'border-emerald-500/40 shadow-lg shadow-emerald-500/5' : 'border-slate-800'
-              } space-y-4`}>
+              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#D0E3F7] shadow-[0_6px_20px_rgba(2,132,199,0.06)] hover:shadow-[0_12px_28px_rgba(2,132,199,0.14)] hover:border-[#38BDF8] transition-all duration-300">
                 
-                {/* Header: Role & Period */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-850">
+                {/* Header Info */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                   <div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="font-heading text-xl font-bold text-white group-hover:text-brand-accent transition-colors">
-                        {exp.role}
-                      </h3>
-                      {exp.isCurrent && (
-                        <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                          Current Role
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-base font-medium text-slate-300 flex items-center gap-2 mt-0.5">
-                      <Briefcase className="w-4 h-4 text-brand-accent" />
-                      <span>{exp.company}</span>
+                    <h3 className="font-heading text-xl font-bold text-[#0F172A] group-hover:text-[#0284C7] transition-colors">
+                      {exp.role}
+                    </h3>
+                    <p className="text-base font-semibold text-[#0284C7] mt-0.5">
+                      {exp.company}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2 font-mono text-xs text-brand-accent bg-navy-900 px-3 py-1.5 rounded-lg border border-slate-800 w-fit">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{exp.period} ({exp.duration})</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#F0F7FF] border border-[#D0E3F7] text-[#475569] flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-[#0284C7]" />
+                      <span>{exp.period}</span>
+                    </span>
+                    {exp.isCurrent && (
+                      <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] border border-[#38BDF8]/40 animate-pulse">
+                        Current
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 {/* Bullets */}
-                <ul className="space-y-2.5 pt-2">
+                <ul className="space-y-2 mb-5">
                   {exp.bullets.map((bullet, idx) => (
-                    <li key={idx} className="text-sm text-slate-300 leading-relaxed flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
+                    <li key={idx} className="text-[14px] text-[#334155] flex items-start gap-2.5 leading-relaxed">
+                      <span className="text-[#0284C7] font-bold mt-0.5">&bull;</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Skills tags */}
-                <div className="pt-4 flex flex-wrap gap-1.5 border-t border-slate-850">
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#E0F2FE]">
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-0.5 rounded text-xs font-mono bg-navy-900 text-slate-300 border border-slate-800"
+                      className="px-2.5 py-1 rounded-full text-xs font-medium bg-[#F0F7FF] text-[#334155] border border-[#D0E3F7]"
                     >
                       {skill}
                     </span>
@@ -152,6 +156,7 @@ export default function ExperienceSection() {
                 </div>
 
               </div>
+
             </div>
           ))}
         </div>

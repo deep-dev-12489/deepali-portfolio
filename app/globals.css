@@ -8,62 +8,72 @@
   }
   
   body {
-    @apply bg-navy-950 text-slate-200 antialiased font-sans selection:bg-brand-accent selection:text-white;
+    @apply bg-white text-[#0F172A] antialiased font-sans selection:bg-[#DBEAFE] selection:text-[#0369A1];
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading tracking-tight;
+    @apply font-heading tracking-tight text-[#0F172A];
   }
 }
 
-/* Custom scrollbar */
+/* Custom Light Blue / Azure Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070C1B;
+  background: #F4F9FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A2A50;
-  border-radius: 5px;
+  background: #BAE6FD;
+  border-radius: 9999px;
+  border: 2px solid #F4F9FF;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
+  background: #38BDF8;
 }
 
-/* Dark section glassmorphism cards */
-.dark-card {
-  background: rgba(15, 30, 66, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.dark-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dark-card-hover:hover {
-  background: rgba(20, 37, 84, 0.9);
-  border-color: rgba(34, 211, 238, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.25);
-}
-
-/* Light section cards */
-.light-card {
+/* Soft Light Blue Cards */
+.blue-card {
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  border: 1px solid #D0E3F7;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.light-card-hover:hover {
-  border-color: #3B82F6;
+.blue-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blue-card-hover:hover {
+  border-color: #38BDF8;
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 32px rgba(2, 132, 199, 0.16);
+}
+
+/* Pill gradient button in Professional Azure/Sky */
+.btn-blue-gradient {
+  background: linear-gradient(135deg, #0284C7 0%, #0078D4 100%);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-blue-gradient:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #0063B1 100%);
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.35);
+}
+
+/* Sticker peel-off effect */
+.sticker-look {
+  filter: drop-shadow(0 4px 10px rgba(2, 132, 199, 0.15));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sticker-look:hover {
+  transform: scale(1.1) rotate(4deg);
 }
