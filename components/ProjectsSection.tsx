@@ -6,8 +6,10 @@ import {
   Youtube,
   Sparkles,
   TrendingUp,
+  Award,
 } from 'lucide-react';
 import { GitBranchSticker } from './stickers';
+import CertificateModal from './CertificateModal';
 
 interface Project {
   id: string;
@@ -24,9 +26,32 @@ interface Project {
   demoUrl?: string;
   impactMetric?: string;
   featured?: boolean;
+  certificateUrl?: string;
+  certificateTitle?: string;
 }
 
 const projects: Project[] = [
+  {
+    id: 'agentguard',
+    title: 'AgentGuard — Zero-Trust AI Agent Action Control Plane',
+    subtitle: 'HackIndia AI & CyberTech 2026 · Team YUGANTAR',
+    role: 'Frontend & Telemetry Console Lead',
+    category: 'ai',
+    featured: true,
+    impactMetric: 'HackIndia 2026 · KIT Kanpur',
+    description:
+      'Zero-trust runtime defense architecture intercepting autonomous AI agent tool execution. Prevents indirect prompt injection (OWASP LLM01) via origin-to-action taint tracking and real-time provenance lineage enforcement.',
+    highlights: [
+      'Lead Developer for Next.js 14 interactive telemetry console & real-time React Flow attack lineage graph',
+      'Sub-8ms runtime MCP tool interception separating document reading from tool execution permissions',
+      'Engineered human-in-the-loop review queue for high-impact mutations with cryptographic forensic trace',
+    ],
+    tags: ['Next.js 14', 'React Flow', 'TypeScript', 'Tailwind CSS', 'MCP Protocol', 'FastAPI'],
+    githubUrl: 'https://github.com/deep-dev-12489/AgentGuard',
+    githubStatus: 'live',
+    certificateUrl: '/certificates/hackindia-certificate-2026.png',
+    certificateTitle: 'HackIndia AI & CyberTech Hackathon 2026 Certificate',
+  },
   {
     id: 'perimeter',
     title: 'Perimeter — AI Scope Creep Detector',
@@ -139,6 +164,10 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   const [filter, setFilter] = useState<'all' | 'ai' | 'cloud' | 'saas' | 'media'>('all');
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    url: string;
+    title: string;
+  } | null>(null);
 
   const filteredProjects =
     filter === 'all'
@@ -254,7 +283,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Action Links */}
-                <div className="flex items-center gap-3 pt-2">
+                <div className="flex items-center flex-wrap gap-2.5 pt-2">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
@@ -265,6 +294,22 @@ export default function ProjectsSection() {
                       <Github className="w-3.5 h-3.5" />
                       <span>View on GitHub</span>
                     </a>
+                  )}
+
+                  {project.certificateUrl && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelectedCertificate({
+                          url: project.certificateUrl!,
+                          title: project.certificateTitle || 'Certificate of Participation',
+                        })
+                      }
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-amber-300 bg-amber-50 text-amber-900 hover:bg-amber-100 hover:border-amber-400 transition-all shadow-sm"
+                    >
+                      <Award className="w-3.5 h-3.5 text-amber-600" />
+                      <span>View Certificate</span>
+                    </button>
                   )}
 
                   {project.youtubeUrl && (
@@ -286,6 +331,19 @@ export default function ProjectsSection() {
         </div>
 
       </div>
+
+      {/* Certificate Lightbox Modal */}
+      {selectedCertificate && (
+        <CertificateModal
+          isOpen={!!selectedCertificate}
+          onClose={() => setSelectedCertificate(null)}
+          certificateUrl={selectedCertificate.url}
+          title={selectedCertificate.title}
+          event="HackIndia AI & CyberTech Hackathon 2026"
+          date="October 28, 2026"
+          certificateId="HI-2026-E0048-U031689-RDIO"
+        />
+      )}
     </section>
   );
 }
